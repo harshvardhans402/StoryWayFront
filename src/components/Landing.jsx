@@ -1,27 +1,15 @@
 import React, { useEffect, useRef } from 'react';
-import './App.css';
-import { motion } from "framer-motion";
-import './meri.jpg';
-import { useInView } from "framer-motion"
-import { animate } from "framer-motion"
-// import ThreeDModel from './ThreeDModel.jsx'
+import '../App.css';
+
+
 import HomePage from './Home.jsx';
 import VideoBackground from './VideoBackground.jsx';
 import Features from './Features.jsx';
+import Team from './Team.jsx';
 
 function Landing() {
 
-    const ref = useRef(null)
-    const isInView = useInView(ref)
 
-    useEffect(() => {
-
-        if (isInView) {
-            const mydiv = document.getElementById("first");
-            animate(mydiv, { x: ["60vw", 0] }, { type: "spring", duration: 2 })
-        }
-
-    }, [isInView]);
 
 
 
@@ -32,7 +20,7 @@ function Landing() {
             <HomePage />
             <VideoBackground />
             <Features />
-
+            <Team />
 
         </div>
     );

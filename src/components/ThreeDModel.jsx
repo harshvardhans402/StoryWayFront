@@ -31,7 +31,7 @@ function ThreeDModel() {
         <Canvas style={{ height: '100vh', width: '100vw' }}>
             <ambientLight intensity={10} />
             <Suspense fallback={null}>
-                <Model path="./src/scroll.glb" />
+                <Model path="./scroll.glb" />
             </Suspense>
             <MovingLight />
             <OrbitControls enableZoom={false}

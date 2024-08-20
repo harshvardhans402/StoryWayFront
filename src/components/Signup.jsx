@@ -1,19 +1,31 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import "../customStyles.css";
+import { useContext } from "react";
+import { AuthContext } from "../services/AuthContext";
+
 const Signup = () => {
+
+
+
+    const { isLoggedIn } = useContext(AuthContext);
+
+    if (isLoggedIn) {
+        return <Navigate to="/" />;
+    }
     return (
         <div className="h-[100vh] items-center flex justify-center px-5 lg:px-0">
-            <div className="max-w-screen-xl bg-white border shadow sm:rounded-lg flex justify-center flex-1">
+            <div className="max-w-screen-xl bg-white border shadow sm:rounded-lg flex justify-center flex-1 animate-slide-up">
                 <div className="flex-1 bg-blue-100 text-center hidden md:flex">
                     <div
-                        className="  w-full bg-contain bg-center bg-no-repeat"
+                        className="w-full bg-contain bg-center bg-no-repeat"
                         style={{
-                            backgroundImage: `url(./src/signuppic.jpg)`,
+                            backgroundImage: `url(./signuppic.jpg)`,
                         }}
                     ></div>
                 </div>
                 <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
-                    <div className=" flex flex-col items-center">
+                    <div className="flex flex-col items-center">
                         <div className="text-center">
                             <h1 className="text-1xl xl:text-3xl font-extrabold text-blue-400">
                                 Join the StoryWay Community
@@ -49,9 +61,9 @@ const Signup = () => {
                                         className="w-6 h-6 -ml-2"
                                         fill="none"
                                         stroke="currentColor"
-                                        stroke-width="2"
+                                        strokeWidth="2"
                                         strokeLinecap="round"
-                                        stroke-linejoin="round"
+                                        strokeLinejoin="round"
                                     >
                                         <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
                                         <circle cx="8.5" cy="7" r="4" />
@@ -61,10 +73,26 @@ const Signup = () => {
                                 </button>
                                 <p className="mt-6 text-xs text-gray-600 text-center">
                                     Already have an account?{" "}
-                                    <Link to='/login'>
+                                    <Link to="/login">
                                         <span className="text-blue-900 font-semibold">Sign in</span>
                                     </Link>
                                 </p>
+                                {/* Home Button */}
+                                <Link to="/">
+                                    <button className="mt-3 tracking-wide font-semibold bg-green-500 text-gray-100 w-full py-4 rounded-lg hover:bg-green-700 hover:scale-105 transition-transform duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+                                        <svg
+                                            className="w-6 h-6 -ml-2"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                        >
+                                            <path d="M3 12l2-2m0 0l7-7 7 7m-7-7v18" />
+                                        </svg>
+                                        <span className="ml-3">Home</span>
+                                    </button>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -73,4 +101,5 @@ const Signup = () => {
         </div>
     );
 };
+
 export default Signup;
