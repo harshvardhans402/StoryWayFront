@@ -2,7 +2,7 @@
 import { React } from 'react';
 import ThreeDModel from './ThreeDModel';
 import Navbar from './Navbar';
-import VideoBackground from './VideoBackground';
+
 import { Link } from 'react-router-dom';
 
 const HomePage = () => {
@@ -13,7 +13,7 @@ const HomePage = () => {
     return (
         <>
             <Navbar />
-            {/* <VideoBackground /> */}
+
             <div className="  flex flex-wrap pt-10 justify-center">
                 <ThreeDModel className="z-9" />
                 <div className="text-center  bg-opacity-80 rounded-lg  z-10 absolute ">

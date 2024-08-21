@@ -5,6 +5,7 @@ import Landing from "./components/Landing";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import StoryOptions from "./components/StoryOptions";
+import StoryList from "./components/StoryList";
 function App() {
   return (
 
@@ -16,6 +17,7 @@ function App() {
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/storyOption" element={<StoryOptions />}></Route>
+          <Route path="/allStories" element={<StoryList />}></Route>
         </Routes></BrowserRouter>
     </>
   )
