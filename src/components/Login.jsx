@@ -13,7 +13,7 @@ const Login = () => {
     const { isLoggedIn } = useContext(AuthContext);
 
     if (isLoggedIn) {
-        return <Navigate to="/" />;
+        return <Navigate to="/storyOption" />;
     }
     const handleLogin = async (e) => {
         e.preventDefault();

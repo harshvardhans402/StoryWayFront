@@ -13,7 +13,9 @@ function Navbar() {
             <div className="mx-auto max-w-screen-xl px-6 lg:px-8 relative fixed ">
                 <div className="relative flex h-16 space-x-10 w-full">
                     <div className="flex justify-start">
-                        <img className="block h-8 w-auto mt-4" height="32" src="https://www.svgrepo.com/show/303650/neo-logo.svg" />
+                        <Link to='/'>
+                            <img className="block h-8 w-auto mt-4" height="32" src="https://www.svgrepo.com/show/303650/neo-logo.svg" />
+                        </Link>
                     </div>
 
                     {!isLoggedIn &&

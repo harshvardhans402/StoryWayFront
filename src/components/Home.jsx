@@ -3,6 +3,7 @@ import { React } from 'react';
 import ThreeDModel from './ThreeDModel';
 import Navbar from './Navbar';
 import VideoBackground from './VideoBackground';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
 
@@ -20,9 +21,9 @@ const HomePage = () => {
                     <p className="text-lg text-white mb-6">
                         Dive into a world where you control the narrative. Create, share, and explore stories like never before.
                     </p>
-                    <button className="px-6 py-2 bg-black text-white rounded-full hover:bg-gray-600 transition duration-300">
+                    <Link to='/storyOption' className="px-6 py-2 bg-black text-white rounded-full hover:bg-gray-600 transition duration-300">
                         Get Started
-                    </button>
+                    </Link>
                 </div>
             </div>
 
