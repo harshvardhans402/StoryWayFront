@@ -6,6 +6,10 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import StoryOptions from "./components/StoryOptions";
 import StoryList from "./components/StoryList";
+import Storylines from "./components/StoryLine";
+import StorylinePageLoader from "./components/StorylinePageLoader";
+import StartingStory from "./components/StartingStory";
+
 function App() {
   return (
 
@@ -18,6 +22,13 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/storyOption" element={<StoryOptions />}></Route>
           <Route path="/allStories" element={<StoryList />}></Route>
+          <Route path="/allStories/:storyId" element={<StartingStory />} ></Route>
+          <Route
+            path="/allStories/:storyId/:storylineId"
+            element={
+              <StorylinePageLoader />
+            }
+          ></Route>
         </Routes></BrowserRouter>
     </>
   )
