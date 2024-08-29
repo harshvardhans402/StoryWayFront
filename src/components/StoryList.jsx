@@ -45,9 +45,9 @@ const StoryList = () => {
     return (
         <>
             <Navbar />
-            <div className="min-h-screen bg-gradient-to-t from-black   via-cyan-600  to-pink-500  p-8">
+            <div className="min-h-screen bg-gradient-to-t from-black   via-cyan-200  to-pink-300  p-8">
                 <div className="container mx-auto">
-                    <h1 className="text-5xl font-bold text-white text-center mb-12">
+                    <h1 className="text-5xl font-bold text-teal-500 text-center mb-12">
                         All Stories
                     </h1>
 
@@ -60,9 +60,9 @@ const StoryList = () => {
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
-                                className=" rounded-lg   shadow-2xl p-6 transform hover:scale-105 transition"
+                                className=" rounded-lg   shadow-2xl p-6 transform hover:scale-105 transition bg-white"
                             >
-                                <h2 className="text-3xl font-semibold text-white mb-4">{story.title}</h2>
+                                <h2 className="text-3xl font-semibold text-black mb-4">{story.title.toUpperCase()}</h2>
                                 <p className="text-gray-800 mb-4">{story.description}</p>
                                 <p className="text-gray-800 italic">By {story.author}</p>
                                 <div className="mt-6 text-center">

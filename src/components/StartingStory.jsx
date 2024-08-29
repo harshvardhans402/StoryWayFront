@@ -69,8 +69,8 @@ const StartingStory = () => {
                     backgroundBlendMode: 'overlay',
                 }}
             >
-                <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-8 md:mb-12 text-center">
-                    {storyTitle} - Choose Your Adventure
+                <h1 className="text-4xl md:text-5xl font-extrabold text-teal-500 mb-8 md:mb-12 text-center">
+                    {storyTitle} -<br /> Choose Your Adventure
                 </h1>
                 <motion.ul
                     className="space-y-6 w-full max-w-4xl"

@@ -9,6 +9,8 @@ import StoryList from "./components/StoryList";
 import Storylines from "./components/StoryLine";
 import StorylinePageLoader from "./components/StorylinePageLoader";
 import StartingStory from "./components/StartingStory";
+import AddStoryForm from "./components/AddStoryForm";
+import NestedDropdown from "./components/NestedDropdown";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/storyOption" element={<StoryOptions />}></Route>
+          <Route path="/createStory" element={<AddStoryForm />}></Route>
+          <Route path="/createStory/:storyId" element={<NestedDropdown />}></Route>
           <Route path="/allStories" element={<StoryList />}></Route>
           <Route path="/allStories/:storyId" element={<StartingStory />} ></Route>
           <Route

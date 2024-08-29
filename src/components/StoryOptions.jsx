@@ -68,12 +68,13 @@ const StoryOptions = () => {
                         transition={{ duration: 0.5, delay: 0.6, ease: "easeOut" }}
                         className="w-full md:w-auto"
                     >
-                        <button
+                        <Link
                             onClick={createCustomStory}
+                            to='/createStory'
                             className="w-full md:w-auto block text-center px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg shadow-md hover:bg-blue-600 hover:text-white transition duration-300 transform hover:scale-105"
                         >
                             Create Custom Story
-                        </button>
+                        </Link>
                     </motion.div>
                 </div>
             </div>

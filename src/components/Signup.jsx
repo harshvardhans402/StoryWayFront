@@ -13,6 +13,10 @@ const Signup = () => {
     if (isLoggedIn) {
         return <Navigate to="/" />;
     }
+
+
+
+    
     return (
         <div className="h-[100vh] items-center flex justify-center px-5 lg:px-0">
             <div className="max-w-screen-xl bg-white border shadow sm:rounded-lg flex justify-center flex-1 animate-slide-up">
