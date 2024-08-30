@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../services/AuthContext";
+import Loader from "./Loader";
 
 const Login = () => {
 
@@ -9,7 +10,7 @@ const Login = () => {
     const [error, setError] = useState('');
     const { login } = useContext(AuthContext);
 
-
+    const [isLoading, setIsLoading] = useState(false);
 
     const { isLoggedIn } = useContext(AuthContext);
 
@@ -21,7 +22,7 @@ const Login = () => {
         setError(''); // Reset error message before login attempt
         console.log(email, password);
 
-
+        setIsLoading(true);
         fetch('http://localhost:8080/login', {
             method: 'POST',
             headers: {
@@ -39,11 +40,13 @@ const Login = () => {
                 console.log('Data:', data);
                 // Store the token and user details in localStorage
                 login(data.token, { email: data.email, name: data.name });
+                setIsLoading(false);
 
             })
             .catch(error => {
+                setIsLoading(false);
                 console.error('There was a problem with the fetch operation:', error);
-            });
+            })
 
 
     }
@@ -51,6 +54,7 @@ const Login = () => {
 
     return (
         <div className="flex items-center justify-center h-screen w-full px-5 sm:px-0 bg-cover bg-center" style={{ backgroundImage: `url('/src/background.jpg')` }}>
+            {isLoading && <Loader />}
             <div className="flex bg-white bg-opacity-90 rounded-lg shadow-lg border overflow-hidden max-w-sm lg:max-w-4xl w-full animate-slide-up">
                 <div
                     className="hidden md:block lg:w-1/2 bg-cover"

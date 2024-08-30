@@ -3,7 +3,7 @@ import { Link, Navigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import { AuthContext } from '../services/AuthContext';
 
-const AddStoryForm = ({ onStoryAdded }) => {
+const AddStoryForm = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const token = localStorage.getItem('token');
@@ -71,7 +71,7 @@ const AddStoryForm = ({ onStoryAdded }) => {
             });
         setTitle('');
         setDescription('');
-        if (onStoryAdded) onStoryAdded();
+
     };
 
     return (
@@ -125,7 +125,8 @@ const AddStoryForm = ({ onStoryAdded }) => {
 
                 </div >
             </div>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto m-10 flex flex-col">
+                <h2 className="text-xl font-bold mb-4">My stories</h2>
                 <table className="min-w-full bg-white border border-gray-200">
                     <thead>
                         <tr>

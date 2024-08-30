@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchStorylines } from './StorylineUtil.js';
+import { fetchStorylines, addStoryline } from './StorylineUtil.js';
 import { useParams } from 'react-router-dom';
 import { ChevronDownIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 import NewStorylineModal from './StorylineModal';
@@ -11,16 +11,16 @@ const NestedDropdown = () => {
     const [selectedParent, setSelectedParent] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const { storyId } = useParams(); // Destructured useParams for storyId
-
-    useEffect(() => {
-        async function getStorylines() {
-            try {
-                const hierarchy = await fetchStorylines(storyId);
-                setHierarchicalStorylines(hierarchy);
-            } catch (error) {
-                console.error(error);
-            }
+    async function getStorylines() {
+        try {
+            const hierarchy = await fetchStorylines(storyId);
+            setHierarchicalStorylines(hierarchy);
+        } catch (error) {
+            console.error(error);
         }
+    }
+    useEffect(() => {
+
 
         getStorylines();
     }, [storyId]);
@@ -44,8 +44,9 @@ const NestedDropdown = () => {
 
     const handleAddStoryline = async (title, content) => {
         try {
-            const newStoryline = await addStoryline(storyId, title, content, selectedParent);
-            setHierarchicalStorylines((prevStorylines) => [...prevStorylines, newStoryline]);
+            await addStoryline(storyId, title, content, selectedParent)
+            console.log('Storyline added. Fetching updated data...');
+            await getStorylines();
             closeModal();
         } catch (error) {
             console.error('Failed to add storyline:', error);
@@ -57,8 +58,8 @@ const NestedDropdown = () => {
             <li key={storyline.storylineId} className="mb-2">
                 <div className="flex items-center justify-between p-3 border border-gray-300 rounded-lg bg-gray-100 hover:bg-gray-200 transition duration-200">
                     <div>
-                        <span className="font-bold text-gray-800">{storyline.title}</span>
-                        <p className="text-sm text-gray-600 mt-1">
+                        <span className="font-bold text-gray-800"><p className='text-wrap'>{storyline.title}</p></span>
+                        <p className="text-sm text-gray-600 mt-1 text-wrap  ">
                             {storyline.content}
                         </p>
                     </div>
@@ -89,6 +90,10 @@ const NestedDropdown = () => {
     return (
         <>
             <Navbar />
+            <h1 className="text-4xl md:text-5xl font-extrabold text-teal-500 mt-3 mb-8 md:mb-12 text-center"> Add storylines</h1>
+            <button onClick={() => openModal(0)} className="ml-4 bg-blue-500 text-white text-sm px-3 py-1 rounded hover:bg-blue-400 transition duration-200">
+                Create new Root
+            </button>
             <ul className="list-none p-6 bg-white shadow-lg rounded-lg">
                 {hierarchicalStorylines.map((storyline) => renderStoryline(storyline))}
             </ul>

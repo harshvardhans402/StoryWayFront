@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { fetchStorylines, findStoryline } from './StorylineUtil.js';
 import { motion } from 'framer-motion';
 import Navbar from './Navbar.jsx';
+import Loader from './Loader.jsx';
 
 const StorylinePageLoader = () => {
     const { storyId, storylineId } = useParams();
@@ -10,9 +11,33 @@ const StorylinePageLoader = () => {
     const [hierarchicalStorylines, setHierarchicalStorylines] = useState([]);
     const [currentStoryline, setCurrentStoryline] = useState(null);
     const [error, setError] = useState(null);
+    const token = localStorage.getItem('token');
+
+    async function putCurrentStory() {
+        await fetch('http://localhost:8080/updateCurrentStory', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({ storyId: storyId, storylineId: storylineId })
+        })
+            .then(response => response.text())
+            .then(data => {
+                console.log('Success:', data);
+
+
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
 
     useEffect(() => {
         async function getStorylines() {
+
+
             try {
                 // Fetch the storylines for the given story ID
                 const hierarchy = await fetchStorylines(storyId);
@@ -22,6 +47,8 @@ const StorylinePageLoader = () => {
                 if (storylineId) {
                     const storyline = findStoryline(parseInt(storylineId, 10), hierarchy);
                     setCurrentStoryline(storyline);
+                    await putCurrentStory();
+
                 }
             } catch (error) {
                 setError(error.message);
@@ -41,7 +68,7 @@ const StorylinePageLoader = () => {
         return <div className="text-center text-gray-500 mt-10">Loading...</div>;
     }
 
-    // Function to handle navigation to the next storyline
+    // Function to handle navigation to the next storyline  
     const handleNavigate = (nextStorylineId) => {
         navigate(`/allStories/${storyId}/${nextStorylineId}`);
     };

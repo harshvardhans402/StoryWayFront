@@ -31,6 +31,7 @@ export async function fetchStorylines(storyId) {
         }
 
         const storylines = await response.json();
+        console.log("sdfsdfd", storylines)
 
         const hierarchicalData = buildHierarchy(storylines);
 
@@ -87,4 +88,28 @@ export function findStoryline(storylineId, storylines) {
         }
     }
     return null;
+}
+
+
+export async function addStoryline(storyId, title, content, selectedParent) {
+    const token = localStorage.getItem('token')
+
+    await fetch('http://localhost:8080/addStoryline', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ story: { storyId: storyId }, pid: selectedParent, title: title, content: content })
+    })
+        .then(response => response.text())
+        .then(data => {
+            console.log('Success:', data);
+
+            alert(data)
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+
 }
