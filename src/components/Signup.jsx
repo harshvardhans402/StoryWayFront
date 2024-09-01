@@ -80,21 +80,29 @@ const Signup = () => {
                                         className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                                         type="text"
                                         placeholder="Enter your name"
+                                        value={name}
+                                        onChange={(e) => setName(e.target.value)}
                                     />
                                     <input
                                         className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                                         type="email"
                                         placeholder="Enter your email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
                                     />
                                     <input
                                         className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                                         type="tel"
                                         placeholder="Enter your phone"
+                                        value={phone}
+                                        onChange={(e) => setPhone(e.target.value)}
                                     />
                                     <input
                                         className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                                         type="password"
                                         placeholder="Password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
 
                                     />
                                     <button className="mt-5 tracking-wide font-semibold bg-black text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
