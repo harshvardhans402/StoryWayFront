@@ -11,7 +11,7 @@ const Storylines = () => {
 
         if (token) {
 
-            fetch(`http://localhost:8080/getStoryline/${storyId}`, {
+            fetch(`https://storyway1-v1.onrender.com/getStoryline/${storyId}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

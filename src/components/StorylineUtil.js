@@ -17,7 +17,7 @@ export async function fetchStorylines(storyId) {
 
 
     try {
-        const response = await fetch(`http://localhost:8080/getStoryline/${storyId}`, {
+        const response = await fetch(`https://storyway1-v1.onrender.com/getStoryline/${storyId}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ export function findStoryline(storylineId, storylines) {
 export async function addStoryline(storyId, title, content, selectedParent) {
     const token = localStorage.getItem('token')
 
-    await fetch('http://localhost:8080/addStoryline', {
+    await fetch('https://storyway1-v1.onrender.com/addStoryline', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

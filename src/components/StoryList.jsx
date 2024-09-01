@@ -18,7 +18,7 @@ const StoryList = () => {
         const token = localStorage.getItem('token');
 
         if (token) {
-            fetch('http://localhost:8080/stories', {
+            fetch('https://storyway1-v1.onrender.com/stories', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

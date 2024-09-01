@@ -14,7 +14,7 @@ const StorylinePageLoader = () => {
     const token = localStorage.getItem('token');
 
     async function putCurrentStory() {
-        await fetch('http://localhost:8080/updateCurrentStory', {
+        await fetch('https://storyway1-v1.onrender.com/updateCurrentStory', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

@@ -18,7 +18,7 @@ const AddStoryForm = () => {
     async function getStories() {
 
         if (token) {
-            fetch('http://localhost:8080/stories', {
+            fetch('https://storyway1-v1.onrender.com/stories', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ const AddStoryForm = () => {
         e.preventDefault();
         // Here you would usually send the data to your server
 
-        fetch('http://localhost:8080/createStory', {
+        fetch('https://storyway1-v1.onrender.com/createStory', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

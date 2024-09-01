@@ -23,7 +23,7 @@ const Login = () => {
         console.log(email, password);
 
         setIsLoading(true);
-        fetch('http://localhost:8080/login', {
+        fetch('https://storyway1-v1.onrender.com/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -17,7 +17,7 @@ const StartingStory = () => {
         }
 
         try {
-            const response = await fetch(`http://localhost:8080/getStartingStoryline/${storyId}`, {
+            const response = await fetch(`https://storyway1-v1.onrender.com/getStartingStoryline/${storyId}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
