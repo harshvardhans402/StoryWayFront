@@ -24,7 +24,8 @@ const Signup = () => {
         e.preventDefault();
         // Here you would usually send the data to your server
         setLoading(true);
-    
+        console.log(email, password, phone, name)
+
         fetch('https://storyway1-v1.onrender.com/register', {
             method: 'POST',
             headers: {
@@ -81,6 +82,7 @@ const Signup = () => {
                                         className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                                         type="text"
                                         placeholder="Enter your name"
+                                        required
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
                                     />
@@ -88,6 +90,7 @@ const Signup = () => {
                                         className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                                         type="email"
                                         placeholder="Enter your email"
+                                        required
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                     />
@@ -95,6 +98,7 @@ const Signup = () => {
                                         className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                                         type="tel"
                                         placeholder="Enter your phone"
+                                        required
                                         value={phone}
                                         onChange={(e) => setPhone(e.target.value)}
                                     />
@@ -102,6 +106,7 @@ const Signup = () => {
                                         className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                                         type="password"
                                         placeholder="Password"
+                                        required
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
 
