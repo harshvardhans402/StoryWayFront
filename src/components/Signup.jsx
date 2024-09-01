@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import "../customStyles.css";
 import { useContext } from "react";
 import { AuthContext } from "../services/AuthContext";
@@ -11,6 +11,7 @@ const Signup = () => {
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
 
 
@@ -37,7 +38,10 @@ const Signup = () => {
             .then(response => response.json())
             .then(data => {
                 console.log('Success:', data);
+
                 setLoading(false);
+                alert("Registered successfully")
+                navigate('/login');
 
             })
             .catch((error) => {
