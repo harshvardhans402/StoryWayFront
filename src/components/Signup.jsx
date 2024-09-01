@@ -24,6 +24,7 @@ const Signup = () => {
         e.preventDefault();
         // Here you would usually send the data to your server
         setLoading(true);
+    
         fetch('https://storyway1-v1.onrender.com/register', {
             method: 'POST',
             headers: {
@@ -106,7 +107,7 @@ const Signup = () => {
 
                                     />
                                     <button className="mt-5 tracking-wide font-semibold bg-black text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
-                                        type="submit">
+                                        type="submit" value='submit'>
                                         <svg
                                             className="w-6 h-6 -ml-2"
                                             fill="none"
