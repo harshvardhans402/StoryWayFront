@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
-import { Navigate, Link } from 'react-router-dom';
+import { Navigate, Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../services/AuthContext';
 import Navbar from './Navbar';
 import { motion } from 'framer-motion';
 
 const StoryOptions = () => {
+    const navigate = useNavigate();
 
     const { isLoggedIn } = useContext(AuthContext);
 
@@ -12,8 +13,32 @@ const StoryOptions = () => {
         return <Navigate to='/login' />;
     }
 
-    const resumeStory = () => {
-        // Implement routing logic for resuming an existing story
+    const resumeStory = async () => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            setError('No token found, please log in first.');
+            return;
+        }
+
+        try {
+            const response = await fetch('https://storyway1-v1.onrender.com/CurrentStory', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Something went wrong');
+            }
+
+            const data = await response.json();
+
+        } catch (error) {
+            console.error(error.message);
+            setError(error.message);
+        }
     };
 
     const createCustomStory = () => {
