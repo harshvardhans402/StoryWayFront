@@ -35,7 +35,9 @@ const StoryOptions = () => {
 
             const data = await response.json();
             console.log(data);
-            navigate(`/allStories/${data.current_story_id}/${data.current_storyline_id}`)
+            if (data.current_story_id && data.current_storyline_id) {
+                navigate(`/allStories/${data.current_story_id}/${data.current_storyline_id}`)
+            }
 
         } catch (error) {
             console.error(error.message);
