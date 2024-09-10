@@ -6,17 +6,6 @@ const Team = () => {
 
     const people = [
         {
-            firstname: "Soubhik",
-            lastname: "Mondal",
-            role: "Frontend Developer",
-            picture: "/soubhik.jpg",
-            description: "Harum iusto exercitationem assumenda quas nostrum perspiciatis quos iste sit reprehenderit, libero quae aperiam sapiente delectus, porro tempore minus repellendus ratione distinctio!",
-            facebookURL: "#link",
-            twitterURL: "#link",
-            linkedinURL: "https://www.linkedin.com/in/soubhik-mondal-8880/",
-            youtubeURL: "#link",
-        },
-        {
             firstname: "Harshvardhan",
             lastname: "Sharma",
             role: "Full Stack Developer",
@@ -27,6 +16,18 @@ const Team = () => {
             linkedinURL: "https://www.linkedin.com/in/harshvardhan-sharma-a11399260/",
             youtubeURL: "#link",
         },
+        {
+            firstname: "Soubhik",
+            lastname: "Mondal",
+            role: "Frontend Developer",
+            picture: "/soubhik.jpg",
+            description: "Harum iusto exercitationem assumenda quas nostrum perspiciatis quos iste sit reprehenderit, libero quae aperiam sapiente delectus, porro tempore minus repellendus ratione distinctio!",
+            facebookURL: "#link",
+            twitterURL: "#link",
+            linkedinURL: "https://www.linkedin.com/in/soubhik-mondal-8880/",
+            youtubeURL: "#link",
+        },
+
         {
             firstname: "Soumya",
             lastname: "Chattopadhaya",
