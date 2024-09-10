@@ -20,7 +20,7 @@ const StorylinePageLoader = () => {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             },
-            body: JSON.stringify({ storyId: storyId, storylineId: storylineId })
+            body: JSON.stringify({ storyId: parseInt(storyId, 10), storylineId: parseInt(storylineId, 10) })
         })
             .then(response => response.text())
             .then(data => {

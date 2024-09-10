@@ -18,7 +18,7 @@ const AddStoryForm = () => {
     async function getStories() {
 
         if (token) {
-            fetch('https://storyway1-v1.onrender.com/stories', {
+            fetch('https://storyway1-v1.onrender.com/storiesOfAuthor', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
