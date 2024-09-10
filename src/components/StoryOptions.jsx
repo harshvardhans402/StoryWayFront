@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 const StoryOptions = () => {
     const navigate = useNavigate();
-
+    const [error, setError] = useState();
     const { isLoggedIn } = useContext(AuthContext);
 
     if (!isLoggedIn) {
