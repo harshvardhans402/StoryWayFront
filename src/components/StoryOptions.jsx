@@ -9,7 +9,7 @@ const StoryOptions = () => {
     const [error, setError] = useState();
     const { isLoggedIn } = useContext(AuthContext);
 
-    if (!isLoggedIn) {
+    if (isLoggedIn) {
         return <Navigate to='/login' />;
     }
 
